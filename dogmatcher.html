@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Matcher</title>
+    <style> input[type=range] {width:100px;} </style>
+</head>
+<body>
+<p></p>
+<p></p>
+<p></p>
+<h1 style="text-align: center;"><strong>Dog Matcher</strong></h1>
+<h3 style="text-align: center;"><strong>Featured Dogs</strong></h3>
+<p></p>
+<div class="container" style="text-align: center;"><b><a href="{{url_for('display_adopt')}}"><img src="{{image_one}}" width="370" height="560" alt="Cute black dog available for adoption" /></a></b></div>
+<div class="container" style="text-align: center;"></div>
+<div class="container" style="text-align: center;"><span style="font-weight: bold;"><a href="{{url_for('display_adopt')}}"><img src="{{image_two}}" alt="Dog having fun on the beach" width="400" height="300"/></a></span><b></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<div class="container" style="text-align: center;"><b><a href="{{url_for('display_adopt')}}"><img src="{{image_three}}" alt="Dog with flower available for adoption" width="370" height="600"/></a></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<h3 style="text-align: center;"><strong>Custom Search</strong></h3>
+<h4 style="text-align: center;">Search for your ideal dog by picking from the dropdowns below!</h4>
+    <h4 style="text-align: center;">If you don't have a preference, leave the dropdown set to "Doesn't Matter."</h4>
+    <h4 style="text-align: center;">Adjust the sliders below the dropdowns to show how important that attribute is!</h4>
+<h4 style="text-align: center;">(All the way to the right is "Very Important," all the way to the left is "Not That Important.")</h4>
+<form method="POST" action="/dogmatcher">
+<p style="text-align: center;"><label for="genderHTML">Gender:</label></p>
+<div align="center">
+<select style="text-align: center;" name="genderHTML" id="genderHTML">
+<option value="dm">Doesn't Matter</option>
+<option value="Female">Female</option>
+<option value="Male">Male</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" id="genderSlider" name="genderSlider" /></div>
+<p style="text-align: center;"><label for="size">Size (adult size estimated for puppies):</label></p>
+<div align="center">
+<select style="text-align: center;" name="size" id="size">
+<option value="dm">Doesn't Matter</option>
+<option value="Tiny">Tiny (1-5 pounds)</option>
+<option value="Small">Small (5-15 pounds)</option>
+<option value="Medium">Medium (15-45 pounds)</option>
+<option value="Large">Large (45-95 pounds)</option>
+<option value="Extra Large">Extra Large (95 pounds +)</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="sizeSlider" id="sizeSlider" /></div>
+<p style="text-align: center;"><label for="age">Age:</label></p>
+<div align="center">
+<select name="age" id="age">
+<option value="dm">Doesn't Matter</option>
+<option value="0">0 to 6 months</option>
+<option value="0.5">6 months to 1 year</option>
+<option value="1">1 years</option>
+<option value="2">2 years</option>
+<option value="3">3 years</option>
+<option value="4">4 years</option>
+<option value="5">5 years</option>
+<option value="6">6 years</option>
+<option value="7">7 years</option>
+<option value="8">8 years</option>
+<option value="9">9 years</option>
+<option value="10">10 years +</option>
+</select>
+    </div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="ageSlider" id="ageSlider" /></div>
+<p style="text-align: center;"><label for="activityLevel">Activity Level:</label></p>
+<div align="center">
+<select name="activityLevel" id="activityLevel">
+<option value="dm">Doesn't Matter</option>
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="activitySlider" id="activitySlider" /></div>
+<p style="text-align: center;"><label for="specialNeeds">Special Needs:</label></p>
+<div align="center">
+<select name="specialNeeds" id="specialNeeds">
+<option value="dm">Doesn't Matter</option>
+<option value="Behavioral">Behavioral special needs okay</option>
+<option value="Medical">Medical special needs okay</option>
+<option value="None">No special needs</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="specialNeedsSlider" id="specialNeedsSlider" /></div>
+<p style="text-align: center;"><label for="goodWith">Good with:</label></p>
+<div align="center">
+<select name="goodWith" id="goodWith">
+<option value="dm">Doesn't Matter</option>
+<option value="olderkids">Older Kids</option>
+<option value="youngerkids">Kids of All Ages</option>
+<option value="cats">Cats</option>
+<option value="dogs">Other Dogs</option>
+<option value="catsanddogs">Cats and Dogs</option>
+<option value="kidsandpets">Kids and Other Pets</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="goodWithSlider" id="goodWithSlider" /></div>
+<p style="text-align: center;"><label for="housetrained">Housetrained:</label></p>
+<div align="center">
+<select name="housetrained" id="housetrained">
+<option value="dm">Doesn't Matter</option>
+<option value="Yes">Yes</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="housetrainedSlider" id="housetrainedSlider" /></div>
+<p style="text-align: center;"><label for="independenceLevel">Independence Level:</label></p>
+<div align="center">
+<select name="independenceLevel" id="independenceLevel">
+<option value="dm">Doesn't Matter</option>
+<option value="1">I like my space</option>
+<option value="2">I like a little space</option>
+<option value="3">Average independence</option>
+<option value="4">I love being around you</option>
+<option value="5">I want to be with you at all times!</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="independenceSlider" id="independenceSlider" /></div>
+<p style="text-align: center;"><label for="furColor">Fur Color:</label></p>
+<div align="center">
+<select name="furColor" id="furColor">
+<option value="dm">Doesn't Matter</option>
+<option value="White">White</option>
+<option value="Black">Black</option>
+<option value="Brown">Brown</option>
+<option value="Mixed">Mixed</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="furColorSlider" id="furColorSlider" /></div>
+<p style="text-align: center;"><label for="eyeColor">Eye Color:</label></p>
+<div align="center">
+<select name="eyeColor" id="eyeColor">
+<option value="dm">Doesn't Matter</option>
+<option value="Blue">Blue</option>
+<option value="Brown">Brown</option>
+<option value="Mixed">Mixed</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="eyeColorSlider" id="eyeColorSlider" /></div>
+<p style="text-align: center;"><label for="furType">Fur Type:</label></p>
+<div align="center">
+<select name="furType" id="furType">
+<option value="dm">Doesn't Matter</option>
+<option value="Short">Short</option>
+<option value="Medium">Medium</option>
+<option value="Long">Long</option>
+</select>
+</div>
+<div class="slidecontainer" style="text-align: center;"><input type="range" min="1" max="10" value="5" class="slider" name="furTypeSlider" id="furTypeSlider" /></div>
+<p style="text-align: center;"><br /><br /></p>
+<div class="container" style="text-align: center;"><a href="{{url_for('get_bff')}}"><input type="submit" style="background-color: #00ff00;" a="" /></a></div>
+</form>
+</body>
+</html>

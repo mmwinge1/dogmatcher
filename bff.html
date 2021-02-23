@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is this your new best friend furever?</title>
+</head>
+<body>
+<p></p>
+<p></p>
+<p></p>
+<h1 style="text-align: center;"><strong>Is this your new best friend furever???</strong></h1>
+<h3 style="text-align: center;"><strong>{{dogName}}</strong></h3>
+<p style="text-align: center;">Time in Shelter: {{ timeInShelter }} days</p>
+<div class="container" style="text-align: center;"><span style="font-weight: bold;"><img src="{{bffPic}}" width="370" height="560" alt="Your new best friend" /></span><b></b></div>
+<div class="container" style="text-align: center;"><b></b></div>
+<div class="container" style="text-align: right;"><button style="background-color: #00ff00;"><a href="{{url_for('display_adopt')}}">Adopt Me!</a></button>
+<div class="container" style="text-align: left;"><button style="background-color: #f59e31;"><a href="{{url_for('try_again')}}">Try Again!</a></button></div>
+<div class="container" style="text-align: left;"></div>
+    <form method="POST" action="/bff">
+        <p style="text-align: center;">Gender: {{ genderIdeal }}</p>
+        <p style="text-align: center;">Size (adult size estimated for puppies): {{ sizeIdeal }}</p>
+        <p style="text-align: center;">Age: {{ ageIdeal }} years</p>
+        <p style="text-align: center;">Activity Level: {{ activityLevelIdeal }}</p>
+        <p style="text-align: center;">Special Needs: {{ specialNeedsIdeal }}</p>
+        <p style="text-align: center;">Good With: {{ goodWithIdeal }}</p>
+        <p style="text-align: center;">Housetrained: {{ housetrainedIdeal }}</p>
+        <p style="text-align: center;">Independence Level: {{ independenceIdeal }}</p>
+        <p style="text-align: center;">Fur Color: {{ furColorIdeal }}</p>
+        <p style="text-align: center;">Eye Color: {{ eyeColorIdeal }}</p>
+        <p style="text-align: center;">Fur Type: {{ furTypeIdeal }}</p>
+    </form>
+</div>
+</body>
+</html>
